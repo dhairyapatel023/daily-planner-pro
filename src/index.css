@@ -9,54 +9,43 @@
 
 @layer base {
   :root {
-    --background: 20 60% 96%;
-    --foreground: 240 10% 10%;
+    --background: 240 10% 6%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    --card: 240 8% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
+    --popover: 240 8% 12%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 38 92% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 240 10% 6%;
 
-    --secondary: 240 6% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 240 6% 18%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 20 20% 90%;
-    --muted-foreground: 240 5% 45%;
+    --muted: 240 6% 20%;
+    --muted-foreground: 240 5% 65%;
 
     --accent: 38 92% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 240 10% 6%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 15% 88%;
-    --input: 20 15% 88%;
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
     --ring: 38 92% 50%;
 
     --radius: 1rem;
 
-    /* Custom schedule colors */
-    --schedule-bg-start: 15 85% 70%;
-    --schedule-bg-end: 340 75% 75%;
+    /* Dark gradient background */
+    --schedule-bg-start: 240 15% 8%;
+    --schedule-bg-end: 260 20% 12%;
     
-    --sidebar-bg: 240 8% 12%;
-    --sidebar-text: 0 0% 60%;
+    --sidebar-bg: 240 10% 8%;
+    --sidebar-text: 240 5% 55%;
     --sidebar-active: 38 92% 50%;
-
-    /* Subject colors */
-    --subject-cdc: 174 60% 45%;
-    --subject-embedded: 270 50% 55%;
-    --subject-ai: 210 80% 55%;
-    --subject-ccn: 150 50% 45%;
-    --subject-cloud: 230 60% 55%;
-    --subject-ml: 25 90% 55%;
-    --subject-web: 340 70% 60%;
-    --subject-industry: 45 85% 50%;
-    --subject-lab: 200 60% 50%;
   }
 
   .dark {

@@ -8,16 +8,16 @@ interface DaySelectorProps {
 
 const DaySelector = ({ days, selectedIndex, onSelect }: DaySelectorProps) => {
   return (
-    <div className="flex flex-col items-center justify-center gap-1 rounded-2xl bg-sidebar-bg p-3 shadow-xl">
+    <div className="flex flex-col items-center justify-center gap-2 rounded-3xl bg-sidebar-bg p-4 shadow-2xl border border-border/50">
       {days.map((dayData, index) => (
         <button
           key={dayData.day}
           onClick={() => onSelect(index)}
           className={cn(
-            "flex h-12 w-12 items-center justify-center rounded-xl text-lg font-semibold transition-all duration-300",
+            "flex h-14 w-14 items-center justify-center rounded-2xl text-xl font-bold transition-all duration-300",
             selectedIndex === index
-              ? "bg-sidebar-active text-sidebar-bg shadow-lg scale-105"
-              : "text-sidebar-text hover:text-card hover:bg-sidebar-text/10"
+              ? "bg-sidebar-active text-sidebar-bg shadow-lg shadow-primary/30 scale-110"
+              : "text-sidebar-text hover:text-foreground hover:bg-muted/30"
           )}
         >
           {dayData.shortDay}
@@ -25,9 +25,9 @@ const DaySelector = ({ days, selectedIndex, onSelect }: DaySelectorProps) => {
       ))}
       
       {/* Schedule indicator */}
-      <div className="mt-2 flex flex-col items-center gap-1">
-        <div className="h-12 w-[2px] bg-sidebar-text/20" />
-        <span className="text-[10px] font-medium tracking-widest text-sidebar-text/40 rotate-90 origin-center translate-y-4">
+      <div className="mt-3 flex flex-col items-center gap-1">
+        <div className="h-16 w-[2px] bg-border/30" />
+        <span className="text-[11px] font-semibold tracking-widest text-muted-foreground/50 rotate-90 origin-center translate-y-5">
           Schedule
         </span>
       </div>
