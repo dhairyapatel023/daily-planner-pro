@@ -9,73 +9,87 @@
 
 @layer base {
   :root {
-    --background: 240 10% 6%;
-    --foreground: 0 0% 98%;
+    --background: 60 30% 96%;
+    --foreground: 0 0% 5%;
 
-    --card: 240 8% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 60 30% 98%;
+    --card-foreground: 0 0% 5%;
 
-    --popover: 240 8% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 60 30% 98%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 240 10% 6%;
+    --primary: 350 90% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 6% 18%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 45 100% 60%;
+    --secondary-foreground: 0 0% 5%;
 
-    --muted: 240 6% 20%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 60 10% 90%;
+    --muted-foreground: 0 0% 35%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 240 10% 6%;
+    --accent: 200 100% 50%;
+    --accent-foreground: 0 0% 5%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 20%;
-    --ring: 38 92% 50%;
+    --border: 0 0% 5%;
+    --input: 0 0% 5%;
+    --ring: 350 90% 55%;
 
-    --radius: 1rem;
+    --radius: 0px;
 
-    /* Dark gradient background */
-    --schedule-bg-start: 240 15% 8%;
-    --schedule-bg-end: 260 20% 12%;
-    
-    --sidebar-bg: 240 10% 8%;
-    --sidebar-text: 240 5% 55%;
-    --sidebar-active: 38 92% 50%;
+    /* Neo-brutalism specific */
+    --brutal-shadow: 4px 4px 0px hsl(0 0% 5%);
+    --brutal-shadow-lg: 6px 6px 0px hsl(0 0% 5%);
+    --brutal-shadow-sm: 2px 2px 0px hsl(0 0% 5%);
+    --brutal-border: 3px solid hsl(0 0% 5%);
+
+    /* Subject colors - vibrant neo-brutalism */
+    --subject-cdc: 170 80% 45%;
+    --subject-embedded: 270 80% 65%;
+    --subject-ai: 210 100% 60%;
+    --subject-ccn: 140 80% 50%;
+    --subject-cloud: 250 80% 65%;
+    --subject-ml: 25 100% 55%;
+    --subject-web: 330 90% 60%;
+    --subject-industry: 50 100% 50%;
+    --subject-lab: 195 100% 50%;
   }
 
   .dark {
-    --background: 240 10% 8%;
-    --foreground: 0 0% 95%;
+    --background: 60 5% 10%;
+    --foreground: 60 30% 96%;
 
-    --card: 240 8% 12%;
-    --card-foreground: 0 0% 95%;
+    --card: 60 5% 15%;
+    --card-foreground: 60 30% 96%;
 
-    --popover: 240 8% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 60 5% 15%;
+    --popover-foreground: 60 30% 96%;
 
-    --primary: 38 92% 50%;
+    --primary: 350 90% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 6% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 45 100% 60%;
+    --secondary-foreground: 0 0% 5%;
 
-    --muted: 240 6% 18%;
-    --muted-foreground: 240 5% 60%;
+    --muted: 60 5% 25%;
+    --muted-foreground: 60 10% 65%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 200 100% 50%;
+    --accent-foreground: 0 0% 5%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 20%;
-    --ring: 38 92% 50%;
+    --border: 60 30% 96%;
+    --input: 60 30% 96%;
+    --ring: 350 90% 55%;
+
+    --brutal-shadow: 4px 4px 0px hsl(60 30% 96%);
+    --brutal-shadow-lg: 6px 6px 0px hsl(60 30% 96%);
+    --brutal-shadow-sm: 2px 2px 0px hsl(60 30% 96%);
+    --brutal-border: 3px solid hsl(60 30% 96%);
   }
 }
 
@@ -94,12 +108,34 @@
 }
 
 @layer utilities {
-  .gradient-bg {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--schedule-bg-start)) 0%,
-      hsl(var(--schedule-bg-end)) 100%
-    );
+  .brutal-shadow {
+    box-shadow: var(--brutal-shadow);
+  }
+
+  .brutal-shadow-lg {
+    box-shadow: var(--brutal-shadow-lg);
+  }
+
+  .brutal-shadow-sm {
+    box-shadow: var(--brutal-shadow-sm);
+  }
+
+  .brutal-border {
+    border: var(--brutal-border);
+  }
+
+  .brutal-hover {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .brutal-hover:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px hsl(var(--foreground));
+  }
+
+  .brutal-hover:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px hsl(var(--foreground));
   }
 
   .scrollbar-hide {
