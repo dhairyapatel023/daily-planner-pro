@@ -30,11 +30,11 @@ const ScheduleCard = ({ item, index }: ScheduleCardProps) => {
     >
       <div className="flex items-start gap-2 sm:gap-3">
         {/* Time Column */}
-        <div className="flex flex-col items-end min-w-[52px] sm:min-w-[60px] pt-2">
-          <span className="text-xs sm:text-sm font-bold text-foreground">
+        <div className="flex flex-col items-end min-w-[56px] sm:min-w-[60px] pt-2">
+          <span className="text-sm sm:text-base font-bold text-foreground">
             {item.startTime.replace(" ", "")}
           </span>
-          <span className="text-[10px] sm:text-xs text-muted-foreground font-medium">
+          <span className="text-xs sm:text-sm text-muted-foreground font-medium">
             {item.endTime.replace(" ", "")}
           </span>
         </div>
