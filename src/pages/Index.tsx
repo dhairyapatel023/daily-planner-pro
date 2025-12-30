@@ -1,11 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { scheduleData } from "@/data/scheduleData";
+import DaySelector from "@/components/DaySelector";
+import ScheduleHeader from "@/components/ScheduleHeader";
+import ScheduleTimeline from "@/components/ScheduleTimeline";
 
 const Index = () => {
+  const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+  const selectedSchedule = scheduleData[selectedDayIndex];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen gradient-bg">
+      <div className="flex min-h-screen max-w-4xl mx-auto">
+        {/* Day Selector - Left Side */}
+        <div className="flex items-center justify-center px-4 py-8">
+          <DaySelector
+            days={scheduleData.map((d) => ({ day: d.day, shortDay: d.shortDay }))}
+            selectedIndex={selectedDayIndex}
+            onSelect={setSelectedDayIndex}
+          />
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 py-8 pr-4 pl-2 overflow-hidden">
+          <div className="h-full flex flex-col">
+            <ScheduleHeader selectedDay={selectedSchedule.day} />
+            
+            {/* Scrollable Timeline */}
+            <div className="flex-1 overflow-y-auto scrollbar-hide pr-2">
+              <ScheduleTimeline items={selectedSchedule.items} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
