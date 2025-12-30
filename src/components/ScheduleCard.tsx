@@ -7,15 +7,15 @@ interface ScheduleCardProps {
 }
 
 const subjectBgColors: Record<SubjectType, string> = {
-  cdc: "hsl(170 80% 45%)",
-  embedded: "hsl(270 80% 65%)",
-  ai: "hsl(210 100% 60%)",
-  ccn: "hsl(140 80% 50%)",
-  cloud: "hsl(250 80% 65%)",
-  ml: "hsl(25 100% 55%)",
-  web: "hsl(330 90% 60%)",
-  industry: "hsl(50 100% 50%)",
-  lab: "hsl(195 100% 50%)",
+  cdc: "#2dd4bf",
+  embedded: "#a78bfa",
+  ai: "#60a5fa",
+  ccn: "#4ade80",
+  cloud: "#818cf8",
+  ml: "#fb923c",
+  web: "#f472b6",
+  industry: "#facc15",
+  lab: "#38bdf8",
 };
 
 const ScheduleCard = ({ item, index }: ScheduleCardProps) => {
@@ -28,68 +28,69 @@ const ScheduleCard = ({ item, index }: ScheduleCardProps) => {
       className="animate-fade-in"
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      <div className="flex items-start gap-3 sm:gap-4">
+      <div className="flex items-start gap-2 sm:gap-3">
         {/* Time Column */}
-        <div className="flex flex-col items-center min-w-[60px] sm:min-w-[70px] pt-2">
-          <span className="text-sm sm:text-base font-black text-foreground bg-secondary px-2 py-1 brutal-border brutal-shadow-sm">
+        <div className="flex flex-col items-end min-w-[56px] sm:min-w-[60px] pt-2">
+          <span className="text-sm sm:text-base font-bold text-foreground">
             {item.startTime.replace(" ", "")}
           </span>
-          <div className="w-0.5 h-4 bg-foreground" />
-          <span className="text-xs sm:text-sm font-bold text-muted-foreground">
+          <span className="text-xs sm:text-sm text-muted-foreground font-medium">
             {item.endTime.replace(" ", "")}
           </span>
         </div>
 
         {/* Card */}
-        <div 
-          className="flex-1 min-w-0 bg-card brutal-border brutal-shadow brutal-hover overflow-hidden"
-          style={{ borderLeftWidth: '6px', borderLeftColor: accentColor }}
-        >
+        <div className="flex-1 min-w-0 rounded-xl sm:rounded-2xl bg-card shadow-lg transition-all duration-300 overflow-hidden flex border border-border/30">
+          {/* Colored left bar */}
+          <div 
+            className="w-1.5 shrink-0"
+            style={{ backgroundColor: accentColor }}
+          />
+          
           {/* Content */}
-          <div className="p-3 sm:p-4">
+          <div className="flex-1 min-w-0 p-3 sm:p-4">
             <div className="flex items-start justify-between gap-2">
               <div className="flex-1 min-w-0">
-                <h3 className="text-sm sm:text-base font-black text-card-foreground leading-tight uppercase tracking-wide">
+                <h3 className="text-sm sm:text-base font-bold text-card-foreground leading-tight truncate">
                   {item.subject}
                 </h3>
                 
                 {!hasBatches && item.faculty && (
-                  <div className="mt-2 flex items-center gap-2 text-xs sm:text-sm text-foreground">
-                    <User className="h-4 w-4 shrink-0" strokeWidth={3} />
-                    <span className="font-bold">{item.faculty}</span>
+                  <div className="mt-2 flex items-center gap-1.5 text-xs sm:text-sm text-muted-foreground">
+                    <User className="h-3 w-3 shrink-0" />
+                    <span className="font-medium truncate">{item.faculty}</span>
                   </div>
                 )}
                 
                 {!hasBatches && item.room && (
-                  <div className="mt-1 flex items-center gap-2 text-xs sm:text-sm text-foreground">
-                    <MapPin className="h-4 w-4 shrink-0" strokeWidth={3} />
-                    <span className="font-bold">{item.room}</span>
+                  <div className="mt-1 flex items-center gap-1.5 text-xs sm:text-sm text-muted-foreground">
+                    <MapPin className="h-3 w-3 shrink-0" />
+                    <span className="font-medium">{item.room}</span>
                   </div>
                 )}
 
                 {/* Batch Cards for Practicals */}
                 {hasBatches && (
-                  <div className="mt-3 space-y-2">
+                  <div className="mt-2 sm:mt-3 space-y-2">
                     {item.batches!.map((batch) => (
                       <div
                         key={batch.batch}
-                        className="bg-muted brutal-border p-2 sm:p-3"
-                        style={{ borderWidth: '2px' }}
+                        className="rounded-lg bg-muted/40 px-2 sm:px-3 py-2 border border-border/20"
                       >
                         <div className="flex items-center gap-2 mb-1">
                           <span
-                            className="px-2 py-0.5 text-[10px] sm:text-xs font-black text-foreground brutal-border brutal-shadow-sm shrink-0"
-                            style={{ backgroundColor: accentColor, borderWidth: '2px' }}
+                            className="rounded-md px-2 py-0.5 text-[10px] sm:text-xs font-bold text-background shrink-0"
+                            style={{ backgroundColor: accentColor }}
                           >
                             {batch.batch}
                           </span>
-                          <p className="text-xs sm:text-sm font-bold text-card-foreground uppercase">
+                          <p className="text-xs sm:text-sm font-semibold text-card-foreground">
                             {batch.subject}
                           </p>
                         </div>
-                        <div className="flex items-center gap-2 text-[10px] sm:text-xs text-muted-foreground pl-1 font-semibold">
-                          <span>{batch.faculty}</span>
-                          <span className="font-black">•</span>
+                        <div className="flex items-center gap-2 text-[10px] sm:text-xs text-muted-foreground pl-1">
+                          <span className="font-medium">{batch.faculty}</span>
+                          <span>•</span>
                           <span>{batch.room}</span>
                         </div>
                       </div>
@@ -101,8 +102,8 @@ const ScheduleCard = ({ item, index }: ScheduleCardProps) => {
               {/* Type Badge */}
               {isPractical && !hasBatches && (
                 <span
-                  className="px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-black text-foreground brutal-border brutal-shadow-sm shrink-0 uppercase"
-                  style={{ backgroundColor: accentColor, borderWidth: '2px' }}
+                  className="rounded-lg px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-bold text-background shrink-0"
+                  style={{ backgroundColor: accentColor }}
                 >
                   Lab
                 </span>

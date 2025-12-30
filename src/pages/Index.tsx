@@ -19,24 +19,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Decorative background pattern */}
-      <div 
-        className="fixed inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            45deg,
-            hsl(var(--foreground)) 0,
-            hsl(var(--foreground)) 1px,
-            transparent 0,
-            transparent 50%
-          )`,
-          backgroundSize: '10px 10px'
-        }}
-      />
-      
-      <div className="relative flex min-h-screen w-full">
+      <div className="flex min-h-screen w-full">
         {/* Day Selector - Fixed Left Side */}
-        <div className="fixed left-0 top-0 h-full flex items-center z-10 px-2 sm:px-3">
+        <div className="fixed left-0 top-0 h-full flex items-center z-10 px-2">
           <DaySelector
             days={scheduleData.map((d) => ({ day: d.day, shortDay: d.shortDay }))}
             selectedIndex={selectedDayIndex}
@@ -45,7 +30,7 @@ const Index = () => {
         </div>
 
         {/* Main Content - with left margin for day selector */}
-        <div className="flex-1 ml-16 sm:ml-24 py-4 sm:py-6 px-3 sm:px-6 overflow-hidden">
+        <div className="flex-1 ml-16 sm:ml-20 py-4 px-3 sm:px-6 overflow-hidden">
           <div className="h-full flex flex-col max-w-2xl">
             <ScheduleHeader selectedDay={selectedSchedule.day} />
             

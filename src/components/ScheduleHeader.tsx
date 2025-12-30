@@ -7,24 +7,26 @@ interface ScheduleHeaderProps {
 const ScheduleHeader = ({ selectedDay }: ScheduleHeaderProps) => {
   const today = new Date();
   const dayOfMonth = format(today, "d");
-  const monthYear = format(today, "MMM yyyy").toUpperCase();
-  const dayName = format(today, "EEE").toUpperCase();
+  const monthYear = format(today, "MMM yyyy");
+  const dayName = format(today, "EEE");
 
   return (
-    <div className="flex items-start justify-between mb-6 gap-4">
+    <div className="flex items-start justify-between mb-5 gap-2">
       <div className="min-w-0 flex-1">
-        <h1 className="text-3xl sm:text-5xl font-black text-foreground tracking-tight uppercase">
+        <h1 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
           Schedule
         </h1>
-        <p className="text-muted-foreground mt-2 text-base sm:text-lg font-bold uppercase tracking-wide">
+        <p className="text-muted-foreground mt-1 text-base sm:text-lg font-medium">
           {selectedDay}
         </p>
       </div>
       
-      <div className="bg-primary brutal-border brutal-shadow-lg p-3 sm:p-4 text-center">
-        <span className="text-xs sm:text-sm font-bold text-primary-foreground block">{dayName}</span>
-        <span className="text-3xl sm:text-5xl font-black text-primary-foreground block leading-none">{dayOfMonth}</span>
-        <p className="text-xs sm:text-sm font-bold text-primary-foreground mt-1">{monthYear}</p>
+      <div className="text-right shrink-0">
+        <div className="flex items-baseline gap-1.5 justify-end">
+          <span className="text-xs sm:text-sm text-muted-foreground">{dayName}</span>
+          <span className="text-3xl sm:text-4xl font-bold text-primary">{dayOfMonth}</span>
+        </div>
+        <p className="text-xs sm:text-sm text-muted-foreground">{monthYear}</p>
       </div>
     </div>
   );
