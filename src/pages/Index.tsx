@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { scheduleData } from "@/data/scheduleData";
 import DaySelector from "@/components/DaySelector";
 import ScheduleHeader from "@/components/ScheduleHeader";
 import ScheduleTimeline from "@/components/ScheduleTimeline";
 
 const Index = () => {
-  const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+  const todayIndex = useMemo(() => {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    // Map to schedule index (assuming schedule starts Monday = 0)
+    const scheduleIndex = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+    // Clamp to available days in schedule
+    return Math.min(scheduleIndex, scheduleData.length - 1);
+  }, []);
+
+  const [selectedDayIndex, setSelectedDayIndex] = useState(todayIndex);
   const selectedSchedule = scheduleData[selectedDayIndex];
 
   return (
