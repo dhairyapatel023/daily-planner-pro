@@ -18,7 +18,7 @@ export interface ScheduleItem {
   endTime: string;
   type: 'lecture' | 'practical';
   subjectType: SubjectType;
-  batches?: { batch: string; faculty: string; room: string }[];
+  batches?: { batch: string; subject: string; faculty: string; room: string }[];
 }
 
 export interface DaySchedule {
@@ -52,9 +52,9 @@ export const scheduleData: DaySchedule[] = [
         type: 'practical',
         subjectType: 'lab',
         batches: [
-          { batch: 'H10', faculty: 'Embedded Systems Lab - Gunjan Thakur', room: 'E214' },
-          { batch: 'H11', faculty: 'AI Systems Lab - Manish Mandloi', room: 'E212' },
-          { batch: 'H12', faculty: 'CCN Lab - Anand Singh', room: 'E212-3' },
+          { batch: 'H10', subject: 'Embedded Systems Lab', faculty: 'Gunjan Thakur', room: 'E214' },
+          { batch: 'H11', subject: 'AI Systems Lab', faculty: 'Manish Mandloi', room: 'E212' },
+          { batch: 'H12', subject: 'CCN Lab', faculty: 'Anand Singh', room: 'E212-3' },
         ],
       },
       {
@@ -113,9 +113,9 @@ export const scheduleData: DaySchedule[] = [
         type: 'practical',
         subjectType: 'lab',
         batches: [
-          { batch: 'H10', faculty: 'AI Systems Lab - Manish Mandloi', room: 'E212-3' },
-          { batch: 'H11', faculty: 'CCN Lab - Devlina Adhikari', room: 'E212' },
-          { batch: 'H12', faculty: 'Embedded Systems Lab - Gunjan Thakur', room: 'E214' },
+          { batch: 'H10', subject: 'AI Systems Lab', faculty: 'Manish Mandloi', room: 'E212-3' },
+          { batch: 'H11', subject: 'CCN Lab', faculty: 'Devlina Adhikari', room: 'E212' },
+          { batch: 'H12', subject: 'Embedded Systems Lab', faculty: 'Gunjan Thakur', room: 'E214' },
         ],
       },
       {
@@ -174,9 +174,9 @@ export const scheduleData: DaySchedule[] = [
         type: 'practical',
         subjectType: 'lab',
         batches: [
-          { batch: 'H10', faculty: 'CCN Lab - Devlina Adhikari', room: 'E212-3' },
-          { batch: 'H11', faculty: 'Embedded Systems Lab - Gunjan Thakur', room: 'E214' },
-          { batch: 'H12', faculty: 'AI Systems Lab - Manish Mandloi', room: 'E212' },
+          { batch: 'H10', subject: 'CCN Lab', faculty: 'Devlina Adhikari', room: 'E212-3' },
+          { batch: 'H11', subject: 'Embedded Systems Lab', faculty: 'Gunjan Thakur', room: 'E214' },
+          { batch: 'H12', subject: 'AI Systems Lab', faculty: 'Manish Mandloi', room: 'E212' },
         ],
       },
       {
@@ -245,9 +245,9 @@ export const scheduleData: DaySchedule[] = [
         type: 'practical',
         subjectType: 'web',
         batches: [
-          { batch: 'H10', faculty: 'Shivangi Mehta', room: 'E112-113' },
-          { batch: 'H11', faculty: 'Kamal Garg', room: 'E112-113' },
-          { batch: 'H12', faculty: 'Anand Singh', room: 'E112-113' },
+          { batch: 'H10', subject: 'Web Technology Lab', faculty: 'Shivangi Mehta', room: 'E112-113' },
+          { batch: 'H11', subject: 'Web Technology Lab', faculty: 'Kamal Garg', room: 'E112-113' },
+          { batch: 'H12', subject: 'Web Technology Lab', faculty: 'Anand Singh', room: 'E112-113' },
         ],
       },
       {
@@ -306,9 +306,9 @@ export const scheduleData: DaySchedule[] = [
         type: 'practical',
         subjectType: 'web',
         batches: [
-          { batch: 'H12', faculty: 'Gaurav Bhargava', room: 'E112-113' },
-          { batch: 'H11', faculty: 'Kamal Garg', room: 'E112-113' },
-          { batch: 'H10', faculty: 'Arti Solanki', room: 'E112-113' },
+          { batch: 'H12', subject: 'Web Technology Lab', faculty: 'Gaurav Bhargava', room: 'E112-113' },
+          { batch: 'H11', subject: 'Web Technology Lab', faculty: 'Kamal Garg', room: 'E112-113' },
+          { batch: 'H10', subject: 'Web Technology Lab', faculty: 'Arti Solanki', room: 'E112-113' },
         ],
       },
       {

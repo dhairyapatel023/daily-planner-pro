@@ -75,21 +75,23 @@ const ScheduleCard = ({ item, index }: ScheduleCardProps) => {
                     {item.batches!.map((batch) => (
                       <div
                         key={batch.batch}
-                        className="flex items-center gap-2 sm:gap-3 rounded-lg bg-muted/40 px-2 sm:px-3 py-2 border border-border/20"
+                        className="rounded-lg bg-muted/40 px-2 sm:px-3 py-2 border border-border/20"
                       >
-                        <span
-                          className="rounded-lg px-2 py-1 text-[10px] sm:text-xs font-bold text-background shrink-0"
-                          style={{ backgroundColor: accentColor }}
-                        >
-                          {batch.batch}
-                        </span>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-xs sm:text-sm font-semibold text-card-foreground truncate">
-                            {batch.faculty}
+                        <div className="flex items-center gap-2 mb-1">
+                          <span
+                            className="rounded-md px-2 py-0.5 text-[10px] sm:text-xs font-bold text-background shrink-0"
+                            style={{ backgroundColor: accentColor }}
+                          >
+                            {batch.batch}
+                          </span>
+                          <p className="text-xs sm:text-sm font-semibold text-card-foreground">
+                            {batch.subject}
                           </p>
-                          <p className="text-[10px] sm:text-xs text-muted-foreground font-medium">
-                            {batch.room}
-                          </p>
+                        </div>
+                        <div className="flex items-center gap-2 text-[10px] sm:text-xs text-muted-foreground pl-1">
+                          <span className="font-medium">{batch.faculty}</span>
+                          <span>•</span>
+                          <span>{batch.room}</span>
                         </div>
                       </div>
                     ))}
