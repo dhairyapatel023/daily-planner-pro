@@ -298,17 +298,17 @@ export const scheduleData: DaySchedule[] = [
     items: [
       {
         id: 'fri-1',
-        subject: 'Web Technology Lab',
+        subject: 'Cloud Architecture and Services Lab',
         faculty: '',
         room: 'E112-113',
         startTime: '9:00 AM',
         endTime: '11:00 AM',
         type: 'practical',
-        subjectType: 'web',
+        subjectType: 'cloud',
         batches: [
-          { batch: 'H12', subject: 'Web Technology Lab', faculty: 'Gaurav Bhargava', room: 'E112-113' },
-          { batch: 'H11', subject: 'Web Technology Lab', faculty: 'Kamal Garg', room: 'E112-113' },
-          { batch: 'H10', subject: 'Web Technology Lab', faculty: 'Arti Solanki', room: 'E112-113' },
+          { batch: 'H12', subject: 'Cloud Architecture and Services Lab', faculty: 'Gaurav Bhargava', room: 'E112-113' },
+          { batch: 'H11', subject: 'Cloud Architecture and Services Lab', faculty: 'Kamal Garg', room: 'E112-113' },
+          { batch: 'H10', subject: 'Cloud Architecture and Services Lab', faculty: 'Arti Solanki', room: 'E112-113' },
         ],
       },
       {
