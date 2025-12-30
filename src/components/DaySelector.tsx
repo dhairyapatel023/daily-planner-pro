@@ -23,14 +23,6 @@ const DaySelector = ({ days, selectedIndex, onSelect }: DaySelectorProps) => {
           {dayData.shortDay}
         </button>
       ))}
-      
-      {/* Schedule indicator */}
-      <div className="mt-3 flex flex-col items-center gap-1">
-        <div className="h-16 w-[2px] bg-border/30" />
-        <span className="text-[11px] font-semibold tracking-widest text-muted-foreground/50 rotate-90 origin-center translate-y-5">
-          Schedule
-        </span>
-      </div>
     </div>
   );
 };
