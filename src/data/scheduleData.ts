@@ -306,9 +306,9 @@ export const scheduleData: DaySchedule[] = [
         type: 'practical',
         subjectType: 'cloud',
         batches: [
-          { batch: 'H12', subject: 'Cloud Architecture and Services Lab', faculty: 'Gaurav Bhargava', room: 'E112-113' },
-          { batch: 'H11', subject: 'Cloud Architecture and Services Lab', faculty: 'Kamal Garg', room: 'E112-113' },
           { batch: 'H10', subject: 'Cloud Architecture and Services Lab', faculty: 'Arti Solanki', room: 'E112-113' },
+          { batch: 'H11', subject: 'Cloud Architecture and Services Lab', faculty: 'Kamal Garg', room: 'E112-113' },
+          { batch: 'H12', subject: 'Cloud Architecture and Services Lab', faculty: 'Gaurav Bhargava', room: 'E112-113' },
         ],
       },
       {
