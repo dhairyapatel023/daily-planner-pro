@@ -9,10 +9,10 @@ const Index = () => {
   const selectedSchedule = scheduleData[selectedDayIndex];
 
   return (
-    <div className="min-h-screen gradient-bg">
+    <div className="min-h-screen bg-background">
       <div className="flex min-h-screen max-w-4xl mx-auto">
         {/* Day Selector - Left Side */}
-        <div className="flex items-center justify-center px-4 py-8">
+        <div className="flex items-center justify-center px-3 py-6">
           <DaySelector
             days={scheduleData.map((d) => ({ day: d.day, shortDay: d.shortDay }))}
             selectedIndex={selectedDayIndex}
@@ -21,7 +21,7 @@ const Index = () => {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 py-8 pr-4 pl-2 overflow-hidden">
+        <div className="flex-1 py-6 pr-4 pl-2 overflow-hidden">
           <div className="h-full flex flex-col">
             <ScheduleHeader selectedDay={selectedSchedule.day} />
             
