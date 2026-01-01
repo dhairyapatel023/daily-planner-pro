@@ -21,13 +21,15 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Sticky Header with Day Selector */}
       <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/30 px-4 py-3">
-        <div className="flex flex-col items-center gap-3">
-          <DaySelector
-            days={scheduleData.map((d) => ({ day: d.day, shortDay: d.shortDay }))}
-            selectedIndex={selectedDayIndex}
-            onSelect={setSelectedDayIndex}
-          />
-          <ScheduleHeader selectedDay={selectedSchedule.day} />
+        <div className="flex flex-col gap-3">
+          <div className="flex justify-center">
+            <DaySelector
+              days={scheduleData.map((d) => ({ day: d.day, shortDay: d.shortDay }))}
+              selectedIndex={selectedDayIndex}
+              onSelect={setSelectedDayIndex}
+            />
+          </div>
+          <ScheduleHeader />
         </div>
       </div>
 
