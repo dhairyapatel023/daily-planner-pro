@@ -7,7 +7,7 @@ const ScheduleHeader = () => {
   const dayName = format(today, "EEE");
 
   return (
-    <div className="flex items-start justify-between gap-2">
+    <div className="flex items-center justify-between gap-2">
       <h1 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
         Schedule
       </h1>

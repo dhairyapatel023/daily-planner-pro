@@ -99,8 +99,8 @@ const ScheduleCard = ({ item, index }: ScheduleCardProps) => {
                 )}
               </div>
 
-              {/* Type Badge */}
-              {isPractical && !hasBatches && (
+              {/* Type Badge - only show if subject doesn't already say Lab */}
+              {isPractical && !hasBatches && !item.subject.toLowerCase().includes('lab') && (
                 <span
                   className="rounded-xl px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold text-background shrink-0"
                   style={{ backgroundColor: accentColor }}
