@@ -22,6 +22,7 @@ const Index = () => {
       {/* Sticky Header with Day Selector */}
       <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/30 px-4 py-3">
         <div className="flex flex-col gap-3">
+          <ScheduleHeader />
           <div className="flex justify-center">
             <DaySelector
               days={scheduleData.map((d) => ({ day: d.day, shortDay: d.shortDay }))}
@@ -29,7 +30,6 @@ const Index = () => {
               onSelect={setSelectedDayIndex}
             />
           </div>
-          <ScheduleHeader />
         </div>
       </div>
 
