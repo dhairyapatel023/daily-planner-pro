@@ -7,7 +7,7 @@ interface BreakCardProps {
 }
 
 const BreakCard = ({ startTime, endTime, durationHours }: BreakCardProps) => {
-  const accentColor = "#94a3b8";
+  const accentColor = "#facc15";
 
   return (
     <div className="animate-fade-in">
