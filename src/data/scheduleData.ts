@@ -7,7 +7,8 @@ export type SubjectType =
   | 'ml' 
   | 'web' 
   | 'industry' 
-  | 'lab';
+  | 'lab'
+  | 'elective';
 
 export interface ScheduleItem {
   id: string;
@@ -77,6 +78,16 @@ export const scheduleData: DaySchedule[] = [
         type: 'lecture',
         subjectType: 'cloud',
       },
+      {
+        id: 'mon-5',
+        subject: 'Open Elective',
+        faculty: '',
+        room: 'OE Room',
+        startTime: '4:00 PM',
+        endTime: '6:00 PM',
+        type: 'lecture',
+        subjectType: 'elective',
+      },
     ],
   },
   {
@@ -127,6 +138,16 @@ export const scheduleData: DaySchedule[] = [
         endTime: '4:00 PM',
         type: 'lecture',
         subjectType: 'cloud',
+      },
+      {
+        id: 'tue-5',
+        subject: 'Open Elective',
+        faculty: '',
+        room: 'OE Room',
+        startTime: '4:00 PM',
+        endTime: '5:00 PM',
+        type: 'lecture',
+        subjectType: 'elective',
       },
       {
         id: 'tue-6',
@@ -346,6 +367,7 @@ export const getSubjectLabName = (subjectType: SubjectType): string => {
     web: 'Web Technology Lab',
     industry: 'Industry 4.0 Lab',
     lab: 'Lab',
+    elective: 'Open Elective',
   };
   return labNames[subjectType] || 'Lab';
 };
