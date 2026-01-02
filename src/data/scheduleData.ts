@@ -129,16 +129,6 @@ export const scheduleData: DaySchedule[] = [
         subjectType: 'cloud',
       },
       {
-        id: 'tue-5',
-        subject: 'CDC Training',
-        faculty: 'CD Cell Trainer',
-        room: 'E313',
-        startTime: '4:00 PM',
-        endTime: '5:00 PM',
-        type: 'lecture',
-        subjectType: 'cdc',
-      },
-      {
         id: 'tue-6',
         subject: 'Machine Learning',
         faculty: 'Jigar Shah',
