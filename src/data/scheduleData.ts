@@ -37,7 +37,7 @@ export const scheduleData: DaySchedule[] = [
         subject: 'CDC Training',
         faculty: 'CD Cell Trainer',
         room: 'E313',
-        startTime: '10:00 AM',
+        startTime: '9:00 AM',
         endTime: '11:00 AM',
         type: 'lecture',
         subjectType: 'cdc',
