@@ -16,7 +16,7 @@ const subjectBgColors: Record<SubjectType, string> = {
   web: "#f472b6",
   industry: "#facc15",
   lab: "#38bdf8",
-  elective: "#94a3b8",
+  elective: "#f97316",
 };
 
 const ScheduleCard = ({ item, index }: ScheduleCardProps) => {
