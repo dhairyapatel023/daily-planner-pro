@@ -3,7 +3,6 @@ import { scheduleData } from "@/data/scheduleData";
 import DaySelector from "@/components/DaySelector";
 import ScheduleHeader from "@/components/ScheduleHeader";
 import ScheduleTimeline from "@/components/ScheduleTimeline";
-import { InfiniteGrid } from "@/components/ui/the-infinite-grid";
 
 const Index = () => {
   const todayIndex = useMemo(() => {
@@ -19,28 +18,26 @@ const Index = () => {
   const selectedSchedule = scheduleData[selectedDayIndex];
 
   return (
-    <InfiniteGrid className="min-h-screen">
-      <div className="min-h-screen flex flex-col">
-        {/* Sticky Header with Day Selector */}
-        <div className="sticky top-0 z-10 bg-background/80 backdrop-blur-md border-b border-border/30 px-4 py-3">
-          <div className="flex flex-col gap-3">
-            <ScheduleHeader />
-            <div className="flex justify-center">
-              <DaySelector
-                days={scheduleData.map((d) => ({ day: d.day, shortDay: d.shortDay }))}
-                selectedIndex={selectedDayIndex}
-                onSelect={setSelectedDayIndex}
-              />
-            </div>
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Sticky Header with Day Selector */}
+      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/30 px-4 py-3">
+        <div className="flex flex-col gap-3">
+          <ScheduleHeader />
+          <div className="flex justify-center">
+            <DaySelector
+              days={scheduleData.map((d) => ({ day: d.day, shortDay: d.shortDay }))}
+              selectedIndex={selectedDayIndex}
+              onSelect={setSelectedDayIndex}
+            />
           </div>
         </div>
-
-        {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto px-4 py-4">
-          <ScheduleTimeline items={selectedSchedule.items} />
-        </div>
       </div>
-    </InfiniteGrid>
+
+      {/* Scrollable Content */}
+      <div className="flex-1 overflow-y-auto px-4 py-4">
+        <ScheduleTimeline items={selectedSchedule.items} />
+      </div>
+    </div>
   );
 };
 
