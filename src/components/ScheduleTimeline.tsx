@@ -4,6 +4,7 @@ import BreakCard from "./BreakCard";
 
 interface ScheduleTimelineProps {
   items: ScheduleItem[];
+  selectedBatch?: string;
 }
 
 interface BreakItem {
@@ -30,6 +31,29 @@ const formatTime = (minutes: number): string => {
   if (hours > 12) hours -= 12;
   if (hours === 0) hours = 12;
   return `${hours}:${mins.toString().padStart(2, '0')} ${period}`;
+};
+
+const transformItemForBatch = (item: ScheduleItem, selectedBatch: string): ScheduleItem => {
+  // If "All" is selected or item has no batches, return as-is
+  if (selectedBatch === "All" || !item.batches || item.batches.length === 0) {
+    return item;
+  }
+
+  // Find the batch info for the selected batch
+  const batchInfo = item.batches.find(b => b.batch === selectedBatch);
+  
+  if (!batchInfo) {
+    return item;
+  }
+
+  // Transform to a simplified card with selected batch's info
+  return {
+    ...item,
+    subject: batchInfo.subject,
+    faculty: batchInfo.faculty,
+    room: batchInfo.room,
+    batches: undefined, // Remove batches to show as single card
+  };
 };
 
 const detectBreaks = (items: ScheduleItem[]): TimelineItem[] => {
@@ -61,7 +85,7 @@ const detectBreaks = (items: ScheduleItem[]): TimelineItem[] => {
   return result;
 };
 
-const ScheduleTimeline = ({ items }: ScheduleTimelineProps) => {
+const ScheduleTimeline = ({ items, selectedBatch = "All" }: ScheduleTimelineProps) => {
   if (items.length === 0) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -74,22 +98,28 @@ const ScheduleTimeline = ({ items }: ScheduleTimelineProps) => {
 
   return (
     <div className="space-y-3 sm:space-y-4 pb-6">
-      {timelineItems.map((timelineItem, idx) => 
-        timelineItem.type === 'break' ? (
-          <BreakCard
-            key={`break-${idx}`}
-            startTime={timelineItem.startTime}
-            endTime={timelineItem.endTime}
-            durationHours={timelineItem.durationHours}
-          />
-        ) : (
+      {timelineItems.map((timelineItem, idx) => {
+        if (timelineItem.type === 'break') {
+          return (
+            <BreakCard
+              key={`break-${idx}`}
+              startTime={timelineItem.startTime}
+              endTime={timelineItem.endTime}
+              durationHours={timelineItem.durationHours}
+            />
+          );
+        }
+        
+        const transformedItem = transformItemForBatch(timelineItem.item, selectedBatch);
+        
+        return (
           <ScheduleCard
-            key={timelineItem.item.id}
-            item={timelineItem.item}
+            key={`${timelineItem.item.id}-${selectedBatch}`}
+            item={transformedItem}
             index={timelineItem.index}
           />
-        )
-      )}
+        );
+      })}
     </div>
   );
 };
